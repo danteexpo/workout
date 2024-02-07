@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  // Uses connection pooling
+  url       = env("POSTGRES_PRISMA_URL")
+  // Uses direct connection, ⚠️ make sure to keep this to `POSTGRES_URL_NON_POOLING`
+  // or you'll have dangling databases from migrations
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Workout {
+  id        Int        @id @default(autoincrement())
+  title     String
+  order     Int
+  exercises Exercise[]
+  userId    String
+}
+
+model Exercise {
+  id        Int     @id @default(autoincrement())
+  title     String
+  group     String
+  type      String
+  duration  Int
+  reps      Int
+  order     Int
+  workoutId Int
+  workout   Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+}
