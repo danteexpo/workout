@@ -1,4 +1,5 @@
 import { WorkoutInterface } from "@/types/types";
+import Workout from "./workout";
 
 type WorkoutsProps = {
 	workouts: WorkoutInterface[];
@@ -8,7 +9,7 @@ const Workouts = ({ workouts }: WorkoutsProps) => {
 	return (
 		<div>
 			{workouts.map((workout) => (
-				<p key={workout.id}>{workout.title}</p>
+				<Workout key={workout.id} workout={workout} />
 			))}
 		</div>
 	);

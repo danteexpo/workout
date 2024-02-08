@@ -29,7 +29,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				className={cn(
-					"min-h-screen bg-background font-sans antialiased p-4",
+					"min-h-screen bg-background font-sans antialiased p-6 md:p-8",
 					fontSans.variable
 				)}
 			>
@@ -39,7 +39,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<main className="flex flex-col gap-4 w-full max-w-3xl mx-auto">
+					<main className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
 						<Header />
 						{children}
 					</main>
