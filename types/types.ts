@@ -3,20 +3,16 @@ export interface WorkoutInterface {
 	title: string;
 	order: number;
 	exercises: ExerciseInterface[];
-	userId: number;
+	userId: string;
 }
 
 export interface ExerciseInterface {
 	id: number;
 	title: string;
-	group: ExerciseGroup;
-	type: ExerciseType;
+	group: "Prepare" | "Work" | "Rest" | "CoolDown";
+	type: "Reps" | "Duration";
 	duration: number;
 	reps: number;
 	order: number;
 	workoutId: number;
 }
-
-export type ExerciseGroup = "Prepare" | "Work" | "Rest" | "Cool down";
-
-export type ExerciseType = "Reps" | "Duration";

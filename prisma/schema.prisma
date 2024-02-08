@@ -23,13 +23,25 @@ model Workout {
 }
 
 model Exercise {
-  id        Int     @id @default(autoincrement())
+  id        Int           @id @default(autoincrement())
   title     String
-  group     String
-  type      String
+  group     ExerciseGroup
+  type      ExerciseType
   duration  Int
   reps      Int
   order     Int
   workoutId Int
-  workout   Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  workout   Workout       @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+}
+
+enum ExerciseGroup {
+  Prepare
+  Work
+  Rest
+  CoolDown
+}
+
+enum ExerciseType {
+  Reps
+  Duration
 }
