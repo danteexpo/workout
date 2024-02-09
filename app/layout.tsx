@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 
-export const inter = Inter({
+const inter = Inter({
 	subsets: ["latin"],
 	variable: "--font-inter",
 });
