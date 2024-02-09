@@ -39,10 +39,10 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<main className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
+					<div className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
 						<Header />
 						{children}
-					</main>
+					</div>
 				</ThemeProvider>
 			</body>
 		</html>
