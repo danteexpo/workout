@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import Workouts from "./_components/workouts";
 
 export default async function Home() {
 	const workouts = await prisma.workout.findMany({
@@ -17,11 +18,5 @@ export default async function Home() {
 		},
 	});
 
-	return (
-		<main>
-			{workouts.map((workout) => (
-				<div key={workout.id}>{workout.title}</div>
-			))}
-		</main>
-	);
+	return <Workouts workouts={workouts} />;
 }
